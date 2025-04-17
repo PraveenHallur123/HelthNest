@@ -41,13 +41,7 @@ The idea originated from the growing need for accessible digital health solution
 
 ---
 
-## 📸 Screenshots
 
-![Chatbot UI](assets/screenshots/chatbot.png)
-![Doctors Page](assets/screenshots/doctors.png)
-![Appointment Form](assets/screenshots/appointment.png)
-
----
 
 ## 🧪 Features in Action
 
