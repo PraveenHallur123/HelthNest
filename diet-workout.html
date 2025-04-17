@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthNest | Diet & Workout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f0fffa, #d2fbe4);
+      color: #2c3e50;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1abc9c;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      animation: slideDown 0.7s ease-out;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f1c40f;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      color: #16a085;
+    }
+
+    select,
+    button {
+      padding: 0.8rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+
+    select {
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #1abc9c;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #16a085;
+    }
+
+    #planContainer {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #f0f8f3;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    footer {
+      background: #16a085;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.95rem;
+      margin-top: auto;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.4rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+
+      button {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1><i class="fas fa-heart-pulse"></i> HealthNest</h1>
+    <nav>
+      <ul>
+        <<li><a href="index.html">Home</a></li>
+        <li><a href="vault.html">Vault</a></li>
+        <li><a href="doctor.html">Doctors</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+        <li><a href="analysis.html">AI Analysis</a></li>
+        <li><a href="diet-workout.html">Diet & Workout</a></li>
+        <li><a href="chatbot.html">Chatbot</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <div class="container">
+      <h2><i class="fas fa-apple-alt"></i> Select a Disease to Get Plan</h2>
+
+      <!-- Dropdown -->
+      <select id="diseaseSelect">
+        <option value="diabetes">Diabetes</option>
+        <option value="hypertension">Hypertension</option>
+        <option value="obesity">Obesity</option>
+        <option value="heart-disease">Heart Disease</option>
+        <option value="arthritis">Arthritis</option>
+        <option value="cholesterol">Cholesterol</option>
+      </select>
+
+      <!-- Button to Fetch Plan -->
+      <button onclick="loadPlan()">Get Plan</button>
+
+      <!-- Plan Result Container -->
+      <div id="planContainer"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 HealthNest | Developed by Praveen Hallur</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Function to load diet/workout plan based on selected disease
+    function loadPlan() {
+      const disease = document.getElementById('diseaseSelect').value;
+      const planContainer = document.getElementById('planContainer');
+
+      // Display loading message
+      planContainer.innerHTML = '<p>Loading your plan...</p>';
+
+      // Simulate fetching a plan (like from an API)
+      setTimeout(() => {
+        if (disease === 'diabetes') {
+          planContainer.innerHTML = `
+            <h3>Diabetes Diet & Workout Plan</h3>
+            <p><strong>Diet Plan:</strong> A balanced diet rich in fiber, vegetables, whole grains, and lean proteins. Avoid sugary foods and processed carbs.</p>
+            <p><strong>Workout Plan:</strong> 30 minutes of moderate exercise 5 times a week, including walking, swimming, or cycling.</p>
+          `;
+        } else if (disease === 'hypertension') {
+          planContainer.innerHTML = `
+            <h3>Hypertension Diet & Workout Plan</h3>
+            <p><strong>Diet Plan:</strong> Low-sodium, heart-healthy diet including fruits, vegetables, lean meats, and whole grains. Limit salt and alcohol intake.</p>
+            <p><strong>Workout Plan:</strong> 30-45 minutes of aerobic exercise (like brisk walking) at least 5 times a week.</p>
+          `;
+        } else if (disease === 'obesity') {
+          planContainer.innerHTML = `
+            <h3>Obesity Diet & Workout Plan</h3>
+            <p><strong>Diet Plan:</strong> Focus on high-protein, low-calorie foods. Avoid processed sugars and increase fiber intake.</p>
+            <p><strong>Workout Plan:</strong> Incorporate both cardio (running, cycling) and strength training to increase metabolism.</p>
+          `;
+        } else if (disease === 'heart-disease') {
+          planContainer.innerHTML = `
+            <h3>Heart Disease Diet & Workout Plan</h3>
+            <p><strong>Diet Plan:</strong> Heart-healthy foods rich in omega-3 fatty acids like fish, nuts, and seeds. Limit saturated fats.</p>
+            <p><strong>Workout Plan:</strong> 30 minutes of moderate aerobic exercise such as walking or swimming, 4-5 times a week.</p>
+          `;
+        } else if (disease === 'arthritis') {
+          planContainer.innerHTML = `
+            <h3>Arthritis Diet & Workout Plan</h3>
+            <p><strong>Diet Plan:</strong> Anti-inflammatory foods such as fatty fish, nuts, and olive oil. Avoid fried foods and sugary snacks.</p>
+            <p><strong>Workout Plan:</strong> Focus on low-impact exercises like swimming or yoga to reduce joint stress.</p>
+          `;
+        } else if (disease === 'cholesterol') {
+          planContainer.innerHTML = `
+            <h3>Cholesterol Control Diet & Workout Plan</h3>
+            <p><strong>Diet Plan:</strong> High-fiber foods like oats, legumes, and vegetables. Limit trans fats and cholesterol-rich foods.</p>
+            <p><strong>Workout Plan:</strong> Regular cardiovascular exercises like running, biking, or brisk walking to manage cholesterol levels.</p>
+          `;
+        } else {
+          planContainer.innerHTML = '<p>Sorry, no plan available for the selected disease.</p>';
+        }
+      }, 1500);
+    }
+  </script>
+</body>
+
+</html>

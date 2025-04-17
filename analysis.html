@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthNest | AI Risk Analysis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f0fffa, #d2fbe4);
+      color: #2c3e50;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1abc9c;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      animation: slideDown 0.7s ease-out;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f1c40f;
+    }
+
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      color: #16a085;
+    }
+
+    input[type="file"] {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    button {
+      padding: 0.8rem;
+      background: #1abc9c;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #16a085;
+    }
+
+    #result {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #f0f8f3;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    footer {
+      background: #16a085;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.95rem;
+      margin-top: auto;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.4rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+
+      button {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1><i class="fas fa-heart-pulse"></i> HealthNest</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="vault.html">Vault</a></li>
+        <li><a href="doctor.html">Doctors</a></li>
+        <li><a href="#appointment">Appointments</a></li>
+        <li><a href="analysis.html">AI Analysis</a></li>
+        <li><a href="diet-workout.html">Diet & Workout</a></li>
+        <li><a href="chatbot.html">Chatbot</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <div class="container">
+      <h2><i class="fas fa-stethoscope"></i> Upload X-Ray/Report for Analysis</h2>
+      <input type="file" id="xrayUpload" accept="image/*, .pdf">
+      <button onclick="analyze()">Analyze</button>
+      <div id="result"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 HealthNest | Developed by Praveen Hallur</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Demo Analysis Function
+    function analyze() {
+      const fileInput = document.getElementById('xrayUpload');
+      const resultDiv = document.getElementById('result');
+
+      if (fileInput.files.length === 0) {
+        resultDiv.innerHTML = '<p style="color: red;">Please upload an X-ray or report to analyze.</p>';
+        return;
+      }
+
+      // Simulate a delay for the analysis (like an API request)
+      setTimeout(() => {
+        resultDiv.innerHTML = `<p style="color: green;">Analysis Complete: <strong>Low Risk</strong></p>
+        <p>Based on the X-ray/Report, no signs of immediate health concerns have been detected. Please continue regular check-ups.</p>`;
+      }, 2000);
+    }
+  </script>
+</body>
+
+</html>

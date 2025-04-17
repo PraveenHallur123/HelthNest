@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HealthNest | HealthBot</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1><i class="fas fa-heart-pulse"></i> HealthNest</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="vault.html">Vault</a></li>
+        <li><a href="doctor.html">Doctors</a></li>
+        <li><a href="#appointment">Appointments</a></li>
+        <li><a href="analysis.html">AI Analysis</a></li>
+        <li><a href="diet-workout.html">Diet & Workout</a></li>
+        <li><a href="chatbot.html">Chatbot</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Chat Area -->
+  <main>
+    <div id="chatbox">
+      <div id="chat">
+        <div class="message bot">👋 Hello! I'm your Health Assistant. Ask me anything related to health, diet, or fitness.</div>
+      </div>
+      <div class="input-area">
+        <input type="text" id="userInput" placeholder="Ask about health, diet, or fitness...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </main>
+
+  
+
+  <!-- Google Map -->
+  <section id="location">
+    <h2>Our Location</h2>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.11610040945!2d72.74110156825337!3d19.0821978389331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63d4fcf505f%3A0x1e54d7ba166ae218!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1675096851485!5m2!1sen!2sin" 
+      width="100%" 
+      height="300" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 HealthNest | Developed by Praveen Hallur · Mini Project Bytes
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
